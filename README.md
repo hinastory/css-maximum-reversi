@@ -1,6 +1,7 @@
 <p align="center">
-<img width="644" alt="cmr-text 2" src="https://user-images.githubusercontent.com/1696779/154752265-e6ccc9ea-27ad-4332-b5d6-9b9b4b683278.png">
+<img width="644" alt="css-maximum-reversi" src="https://user-images.githubusercontent.com/1696779/154837881-42912314-e54b-4243-82a7-52b3b06ee4ad.png">
 </p>
+
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/hinastory/css-maximum-reversi/blob/main/LICENSE)
 
