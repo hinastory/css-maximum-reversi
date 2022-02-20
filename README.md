@@ -4,7 +4,7 @@
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/hinastory/css-maximum-reversi/blob/main/LICENSE)
 
-CSS Maximum Reversi is for exploring the best of reversi UI/UX with CSS3 and Vue3.
+CSS Maximum Reversi is for exploring the best of Reversi UI/UX with CSS3 and Vue3.
 
 ## Play Game
 
@@ -17,7 +17,7 @@ CSS Maximum Reversi is for exploring the best of reversi UI/UX with CSS3 and Vue
 
 ## Features
 
-- Beautiful and Comfortable reversi UI/UX
+- Beautiful and Comfortable Reversi UI/UX
 - CSS-specific UI/UX
     - No Image
     - No SVG
