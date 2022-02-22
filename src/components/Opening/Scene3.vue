@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import Volume from '../icons/Volume.vue';
+import VolumeIcon from '../icons/VolumeIcon.vue';
 
 interface Props {
   volumeFlag: boolean;
@@ -33,7 +33,7 @@ const emit = defineEmits<Emits>();
     <div class="volume">
       <input id="volume" type="checkbox" v-model="volumeFlag" />
       <label for="volume" @click="emit('change-volume', volumeFlag)">
-        <volume style="--ggs:1" />
+        <volume-icon style="--ggs:1" />
       </label>
     </div>
   </div>

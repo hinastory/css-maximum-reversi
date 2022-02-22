@@ -9,8 +9,8 @@ defineProps<Props>();
 </script>
 
 <template>
-<div class="area-gauge-wrapper">
-  <div class="area-gauge">
+<div class="power-gauge-wrapper">
+  <div class="power-gauge">
     <div class="top" :class="{black: selfTurn != 1}" :style="{height: (100 - selfGauge) + '%'}"></div>
     <div class="bottom" :class="{black: selfTurn == 1}" :style="{height: selfGauge + '%'}"></div>
   </div>
@@ -19,7 +19,7 @@ defineProps<Props>();
 </template>
 
 <style lang="scss" scoped>
-.area-gauge-wrapper {
+.power-gauge-wrapper {
   text-shadow: 0 0 2px #999;
   width: 50px;
   display: flex;
@@ -28,7 +28,7 @@ defineProps<Props>();
   align-items: center;
   text-align: right;
 }
-.area-gauge {
+.power-gauge {
   box-shadow: inset 3px 0 5px rgb(120, 120, 120, 50%);
   width: 32px;
   height: 256px;
@@ -50,7 +50,7 @@ defineProps<Props>();
 
 
 @media screen and (max-width:1120px) {
-.area-gauge-wrapper {
+.power-gauge-wrapper {
   display: flex;
   flex-direction: row;
   width: 100px;
@@ -60,7 +60,7 @@ defineProps<Props>();
   width: 43px;
   display: inline-block;
 }
-.area-gauge {
+.power-gauge {
   height: 128px;
 }
 

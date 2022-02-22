@@ -1,9 +1,9 @@
 <script setup>
-import Screen from "./components/Screen.vue"
+import PlayArea from "./components/PlayArea.vue"
 </script>
 
 <template>
-  <Screen />
+  <play-area />
 </template>
 
 <style lang="scss">

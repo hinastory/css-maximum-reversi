@@ -12,7 +12,7 @@ interface Props {
 const props = defineProps<Props>();
 
 interface Emits {
-  (e: "changeVolume", value: boolean): void;
+  (e: "changeVolume", value: void): void;
   (e: "next", value: void): void;
 }
 const emit = defineEmits<Emits>();
@@ -40,10 +40,6 @@ const start = async () => {
   activeScenes.value.push(2);
 }
 
-const changeVolume = (flag:boolean) => {
-  emit('changeVolume', flag);
-}
-
 start();
 </script>
 
@@ -56,7 +52,7 @@ start();
   </div>
   <scene1 v-if="isActive(0)" />
   <scene2 v-if="isActive(1)" />
-  <scene3 v-if="isActive(2)" :volume-flag="volumeFlag" @next="emit('next')" @changeVolume="changeVolume" />
+  <scene3 v-if="isActive(2)" :volume-flag="volumeFlag" @next="emit('next')" @changeVolume="emit('changeVolume');" />
 </div>
 </template>
 

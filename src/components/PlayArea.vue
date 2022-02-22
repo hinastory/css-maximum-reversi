@@ -2,12 +2,12 @@
 import { computed, ref, reactive } from 'vue';
 import NewGameDialog from "./NewGame.vue";
 import Board from './Board.vue';
-import AreaGauge from './AreaGauge.vue';
+import PowerGauge from './PowerGauge.vue';
 import Chalkboard from './Chalkboard.vue';
 import Player from './Player.vue';
-import Power from "./Power.vue";
+import Reset from "./Reset.vue";
+import Volume from "./Volume.vue";
 import Announce from './Announce.vue';
-import Volume from './icons/Volume.vue';
 import SpeechBalloon from './SpeechBalloon.vue';
 import Opening from './Opening/Opening.vue';
 import Ending from "./Ending/Ending.vue";
@@ -90,8 +90,12 @@ const convMatrix = () => {
 };
 
 const changeVolume = (isChange: boolean, target: string) => {
+  if(isChange) {
+    volumeFlag.value = !volumeFlag.value;
+  }
+  console.log(volumeFlag.value);
   const BGMs = {main: mainBGM, opening: openingBGM, ending: endingBGM}
-  if (isChange && volumeFlag.value) {
+  if (isChange && !volumeFlag.value) {
     for (let [, v] of Object.entries(BGMs)) {
       v.value.pause();
     }
@@ -328,7 +332,7 @@ updateTime();
 </script>
 
 <template>
-  <div class="screen">
+  <div class="play-area">
     <audio ref="openingBGM" loop>
       <source src="../assets/audio/cmr_opening.mp3" />
     </audio>
@@ -349,7 +353,7 @@ updateTime();
       :opponentScore="opponentScore"
       :opponentPasses="opponentPasses"
       :volumeFlag="volumeFlag"
-      @change="changeVolume(true, 'ending')"
+      @changeVolume="changeVolume(true, 'ending')"
       @next="isGameEnding = false; showNewGameDialog = true;"
     />
     <div class="left status-column">
@@ -365,13 +369,8 @@ updateTime();
         <speech-balloon :isOpen="true" />
       </div>
       <div class="action">
-        <div class="volume">
-          <input id="volume" type="checkbox" v-model="volumeFlag" />
-          <label for="volume" @click="changeVolume(true, 'main')">
-            <volume style="--ggs:2.3" />
-          </label>
-        </div>
-        <power
+        <volume :volumeFlag="volumeFlag" @change="changeVolume(true, 'main')"/>
+        <reset
           @click="showNewGameDialog = true"
           :disabled="currentTurn != selfTurn && gameResult == 0"
         />
@@ -409,7 +408,7 @@ updateTime();
         :finalMinute="isFinalMinute"
         :timeLeft="timeLeft"
       />
-      <area-gauge :selfTurn="selfTurn" :selfGauge="selfGauge" />
+      <power-gauge :selfTurn="selfTurn" :selfGauge="selfGauge" />
       <player
         :turn="selfTurn"
         :name="playerName[0]"
@@ -423,7 +422,7 @@ updateTime();
 </template>
 
 <style lang="scss" scoped>
-.screen {
+.play-area {
   color: black;
   display: flex;
   justify-content: center;
@@ -506,39 +505,6 @@ updateTime();
     flex-direction: column;
     padding-bottom: 1em;
   }
-
-  .volume {
-    margin-bottom: 60px;
-    input {
-      opacity: 0;
-    }
-    label {
-      display: block;
-      position: relative;
-      padding: 35px 30px 35px 20px;
-      border: 3px solid #fff;
-      border-radius: 50%;
-      color: #fff;
-      background-color: #6a8494;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.2s, box-shadow 0.2s;
-    }
-
-    label:hover,
-    input:focus + label {
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-    }
-
-    input:checked + label {
-      background-color: #a8a955;
-    }
-
-    input:checked + label::before {
-      background-color: #fff;
-    }
-  }
 }
 
 @keyframes board-spin {
@@ -549,7 +515,7 @@ updateTime();
 }
 
 @media screen and (max-width: 1120px) {
-  .screen {
+  .play-area {
     flex-direction: column;
     align-items: center;
 
@@ -595,16 +561,6 @@ updateTime();
           flex-direction: row;
           align-items: center;
           padding-bottom: 0;
-        }
-        .volume {
-          margin-bottom: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          label {
-            width: 30px;
-            margin-right: 30px;
-          }
         }
       }
 
