@@ -10,6 +10,10 @@ CSS Maximum Reversi is for exploring the best of Reversi UI/UX with CSS3 and Vue
 
 - [hinastory.github.io/css-maximum-reversi/](https://hinastory.github.io/css-maximum-reversi/)
 
+QR Code　
+
+![cmr-qr](https://user-images.githubusercontent.com/1696779/155076427-47032185-8568-4aec-a351-b3fe1776dd22.png)
+
 ## Screenshots
 
 <img width="500" alt="cmr-aa" src="https://user-images.githubusercontent.com/1696779/154554691-6dc835f9-11bd-4cd1-afc1-f0a09f224ff4.png">
