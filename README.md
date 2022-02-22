@@ -16,8 +16,7 @@ QR Code　
 
 ## Screenshots
 
-<img width="500" alt="cmr-aa" src="https://user-images.githubusercontent.com/1696779/154554691-6dc835f9-11bd-4cd1-afc1-f0a09f224ff4.png">
-
+<img width="500" alt="CMR Screenshots" src="https://user-images.githubusercontent.com/1696779/155076686-b5fb71ec-90c9-4d5f-a7ca-664a94eb6937.png">
 
 ## Features
 
