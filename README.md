@@ -34,7 +34,7 @@ QR Code　
     - Landscape mode is not supported (iPhone and Android)
 - Running on the local machine
     - No Ajax
-    - Reversi AI running on Web　Worker
+    - Reversi AI running on Web Worker
 
 ## Requirements
 
